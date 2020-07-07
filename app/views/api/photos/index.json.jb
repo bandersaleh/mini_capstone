@@ -1,0 +1,7 @@
+@photos.map do |photo|
+  {
+    id: photo.id,
+    name: photo.name,
+    price: photo.price,
+  }
+end
