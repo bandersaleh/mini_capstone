@@ -10,10 +10,16 @@ class Api::PhotosController < ApplicationController
       name: params[:name],
       price: params[:price],
     )
-    @photo.save
-    render "show.json.jb"
+    if @photo.save
+      # happy path
+      render "show.json.jb"
+    # else
+    #   # sad path
+    #   # render 'errors.json.jb' status: :unprocessable_entity
+    #   render json: {errors: @product.errors.full_ messages} status: :unprocessable_entity
+    end
   end
-
+ 
   # def is_discounted
   #   if price: params[:price] < 10
   #     return true
